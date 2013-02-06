@@ -3,7 +3,7 @@
 ;change the field <apikeyhere>, <usernamehere> and <md5hash of your password here>
 ;Requires curl.exe (http://curl.haxx.se/)
 ;I should probably switch to sockets whenever I get time to update this.
-;needs an infinite timer for the command "mpcheck"
+;needs an infinite timer for the command "mpcheck".
 
 alias trak-settings {
   set %trak-apikey <apikeyhere>
@@ -22,7 +22,6 @@ on *:sockopen:mpc {
 on *:sockread:mpc: {
   var %read
   sockread %read
-
   if (*var filepath* iswm %read) {
     var %hm1 $calc($count(%read, $+ $chr(92) $+ ) +1)
     set %hm2 $remove($gettok(%read, %hm1 ,92),";)
